@@ -1,0 +1,13 @@
+<label classs="form-control">Input number one</label>
+<input type="number" class="form-control" [(ngModel)]="getNumberInputOne">
+<label classs="form-control">Input number two</label>
+<input type="number" class="form-control" [(ngModel)]="getNumberInputTwo">
+
+<select (click)="showResult($event.target.value)">
+    <option value="+">Add</option>
+    <option value="-">Sub</option>
+    <option value="*">Multiple</option>
+    <option value="/">Divide</option>
+    </select>
+<br>
+<p class="bg-light">Result {{result}}</p>
