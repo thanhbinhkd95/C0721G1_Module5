@@ -1,0 +1,26 @@
+<h1>Back ground color below</h1>
+<label for="alo1">Pick color </label>
+<select #element1 id="alo1">
+  <option value="#fff" selected>White</option>
+  <option value="#f72048" selected>Red</option>
+  <option value="#2036f7" selected>Blue</option>
+</select>
+
+<label for="alo2">Pick color</label>
+<select #element2 id="alo2">
+  <option value="#fff" selected>White</option>
+  <option value="#f72048" selected>Red</option>
+  <option value="#2036f7" selected>Blue</option>
+</select>
+
+<label for="alo1">Pick color blue</label>
+<select #element3 id="alo3">
+  <option value="#fff" selected>White</option>
+  <option value="#f72048" selected>Red</option>
+  <option value="#2036f7" selected>Blue</option>
+</select>
+<input type="button" value="submit" (click)="pickColor(element1.value, element2.value, element3.value)">
+
+<p [style.backgroundColor]="color1">This is first color</p>
+<p [style.backgroundColor]="color2">This is second color</p>
+<p [style.backgroundColor]="color3">This is three color</p>
