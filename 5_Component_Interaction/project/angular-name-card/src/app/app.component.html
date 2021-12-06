@@ -1,2 +1,6 @@
-<app-name-card cardName="Professional Dev" email="prodev@codegym.vn" phone="0123456789"></app-name-card>
-<app-progress-bar progress="0"></app-progress-bar>
+<!-- <app-name-card cardName="Professional Dev" email="prodev@codegym.vn" phone="0123456789"></app-name-card>
+<app-progress-bar progress="80"></app-progress-bar> -->
+<!-- <h2>Rating: {{title}}</h2> -->
+<app-rating-bar (rating)="onPickRating($event)"></app-rating-bar>
+<app-countdown-timer (countDown)="handleCount($event)"></app-countdown-timer>
+<p>Countdown timer:{{count}}</p>

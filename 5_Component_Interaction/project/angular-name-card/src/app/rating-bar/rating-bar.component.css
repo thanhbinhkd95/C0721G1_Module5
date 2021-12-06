@@ -1,0 +1,23 @@
+.style-normal {
+    margin-left: 5px;
+    width: 50px;
+    height: 50px;
+    color: white;
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.style-active {
+    margin-left: 5px;
+    width: 50px;
+    height: 50px;
+    color: white;
+    background-color: deeppink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

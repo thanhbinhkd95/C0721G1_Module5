@@ -1,0 +1,34 @@
+1	npm install json-server --save	
+		
+2	package.json	
+	"scripts": {	
+	  ...	
+	  "json-server": "json-server --watch db.json"	
+	}	
+		
+		
+3	db.json	
+		{
+		  "studentList": [
+		    {
+		      "id": 1,
+		      "name": "Tien",
+		      "dateOfBirth": "2000-06-12"
+		    },
+		    {
+		      "id": 2,
+		      "name": "Long",
+		      "dateOfBirth": "1999-07-12"
+		    },
+		    {
+		      "id": 3,
+		      "name": "Khanh",
+		      "dateOfBirth": "2001-08-14"
+		    }
+		  ]
+		}
+		
+4	npm run json-server
+		// localhost:3000
+
+----------------------------

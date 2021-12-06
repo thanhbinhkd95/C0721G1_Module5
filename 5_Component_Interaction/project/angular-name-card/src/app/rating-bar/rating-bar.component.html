@@ -1,0 +1,6 @@
+<h2>Rating for our ServiceManager</h2>
+<div style="display: flex">
+    <div *ngFor="let items of numberRate" [ngClass]="items <= numberPick? 'style-active': 'style-normal'" (click)="onMouseOver(items)">
+        {{items}}
+    </div>
+</div>
