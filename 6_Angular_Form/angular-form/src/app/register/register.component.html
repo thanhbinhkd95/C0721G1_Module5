@@ -1,0 +1,108 @@
+<form class=container [formGroup]="myForm" (ngSubmit)="register()">
+    <h1 text-align: center>
+        MyForm</h1>
+
+    <!-- Value: {{myForm.value | json}} -->
+
+    <!-- <hr>
+    <mat-form-field>
+        <input matInput placeholder="email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="password" formControlName="password">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="confirmPassword" formControlName="confirmPassword">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="country" formControlName="country">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="age" formControlName="age">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-ratio placeholder="gender" formControlName="gender">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="phone" formControlName="phone">
+    </mat-form-field> -->
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" formControlName="email">
+    </div>
+
+    <div style="color: red" *ngIf="myForm.controls.email.hasError('required') && myForm.controls.email.dirty">
+        Nhập đi đừng có lười
+    </div>
+    <div style="color: red" *ngIf="myForm.controls.email.hasError('email') && myForm.controls.email.dirty">
+        Nhap dung dinh dang email
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="password">
+    </div>
+
+    <div style="color: red" *ngIf="myForm.controls.password.hasError('required') && myForm.controls.password.dirty">
+        Nhap password
+    </div>
+    <div style="color: red" *ngIf="myForm.controls.password.hasError('minlength') && myForm.controls.password.dirty">
+        Minlength 6
+    </div>
+
+
+    <div class="mb-3">
+        <label for="confirmpass" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="confirmpass" formControlName="confirmPassword">
+    </div>
+    <div style="color: red" *ngIf="myForm.hasError('passwordNotMatch') && myForm.controls.confirmPassword.dirty">
+        Password ko trung nhau
+    </div>
+
+    <div class="mb-3">
+        <label for="country" class="form-label">Country</label>
+        <select id="country" formControlName="country" class="form-select">
+      <option value = "{{item}}" *ngFor="let item of country">{{item}}</option>
+    </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" class="form-control" id="age" formControlName="age">
+    </div>
+    <div style="color: red" *ngIf="myForm.controls.age.hasError('required') && myForm.controls.age.dirty">
+        Nhap tuoi
+    </div>
+    <div style="color: red" *ngIf="myForm.controls.age.hasError('min') && myForm.controls.age.dirty">
+        Tuoi > 18
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" formControlName="gender">Gender</label> <br>
+        <input type="radio" value="0" formControlName="gender"> FeMale
+        <input type="radio" value="1" formControlName="gender"> Male
+    </div>
+
+    <div class="mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input type="number" class="form-control" id="phone" formControlName="phone">
+    </div>
+    <div style="color: red" *ngIf="myForm.controls.phone.hasError('required') && myForm.controls.phone.dirty">
+        Nhap phone
+    </div>
+    <div style="color: red" *ngIf="myForm.controls.phone.hasError('pattern') && myForm.controls.phone.dirty">
+        Nhap dung dinh dang +84xxxxxxxx
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+
+
+</form>

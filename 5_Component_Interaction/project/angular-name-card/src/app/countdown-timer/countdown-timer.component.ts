@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 export class CountdownTimerComponent implements OnInit {
   constructor() {}
   variable;
-  @Input() tenNumber: number = 15;
+  tenNumber: number = 15;
 
   public updatedCounter: number = 0;
 
