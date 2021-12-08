@@ -1,0 +1,13 @@
+<h1>Danh sách tu Tieng Anh</h1>
+<table>
+    <tr>
+        <td>STT</td>
+        <td>English Name</td>
+        <td>Detail</td>
+    </tr>
+    <tr *ngFor="let items of words; index as i">
+        <td>{{i + 1}}</td>
+        <td>{{items.word}}</td>
+        <td><a (click)="navigation(items.word)">Click here</a></td>
+    </tr>
+</table>
