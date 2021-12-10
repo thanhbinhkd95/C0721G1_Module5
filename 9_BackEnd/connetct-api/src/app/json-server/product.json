@@ -1,0 +1,67 @@
+{
+    "product": [{
+            "id": 1,
+            "name": "IPhone 12",
+            "price": 2400000,
+            "description": "New",
+            "category": {
+                "id": 1,
+                "name": "Phone"
+            }
+        },
+        {
+            "id": 2,
+            "name": "IPhone 11",
+            "price": 1560000,
+            "description": "Like new",
+            "category": {
+                "id": 1,
+                "name": "Phone"
+            }
+        },
+        {
+            "id": 3,
+            "name": "IPhone X",
+            "price": 285000,
+            "description": "99%",
+            "category": {
+                "id": 1,
+                "name": "Phone"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Hut bui SAMSUNG",
+            "price": 2400000,
+            "description": "New",
+            "category": "[object Object]"
+        },
+        {
+            "id": 5,
+            "name": "Tivi Toshiba",
+            "price": 2400000,
+            "description": "New",
+            "category": {
+                "id": 2,
+                "name": "Tivi"
+            }
+        }
+    ],
+    "category": [{
+            "id": 1,
+            "name": "Phone"
+        },
+        {
+            "id": 2,
+            "name": "Tivi"
+        },
+        {
+            "id": 3,
+            "name": "May giat"
+        },
+        {
+            "id": 4,
+            "name": "May hut bui"
+        }
+    ]
+}

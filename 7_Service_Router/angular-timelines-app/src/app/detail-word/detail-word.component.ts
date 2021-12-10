@@ -12,8 +12,9 @@ export class DetailWordComponent implements OnInit {
   word: string;
 
   // constructor(private translateService: TranslateService, activeRouter: ActivatedRoute, router: Router) {
-  //   const wordId = this.translateService.activeRouter.snapshot.name;
-  //   this.mean = this.translateService.getMean(wordId);
+  //   this.word = activeRouter.snapshot.params.word;
+  //   console.log(this.word);
+  //   this.mean = this.translateService.getMean(this.word);
   // }
 
   constructor(
