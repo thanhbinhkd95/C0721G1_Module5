@@ -1,1 +1,42 @@
-<p>list-customer works!</p>
+<a [routerLink]="['/customer/create']">Create Customer</a>
+<table class="table table-light table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Code Customer</th>
+            <th>Name</th>
+            <th>BirthDay</th>
+            <th>Gender</th>
+            <th>Id Card</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Customer Type</th>
+            <th colspan="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let items of customerArr">
+            <td>{{items.id}}</td>
+            <td>{{items.customer_code}}</td>
+            <td>{{items.customer_name}}</td>
+            <td>{{items.customer_birthday}}</td>
+            <td [ngSwitch]="items.customer_gender">
+                <span *ngSwitchCase="0">Male</span>
+                <span *ngSwitchCase="1">FeMale</span>
+                <span *ngSwitchDefault>LGBT</span>
+            </td>
+            <td>{{items.customer_idCard}}</td>
+            <td>{{items.customer_phone}}</td>
+            <td>{{items.customer_email}}</td>
+            <td>{{items.customer_address}}</td>
+            <td>{{items.customer_type.name}}</td>
+            <td>
+                <button type="button" class="btn btn-warning" (click)="showEdit(items.id)">Edit</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger" (click)="showDelete(items.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

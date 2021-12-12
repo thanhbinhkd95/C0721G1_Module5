@@ -1,1 +1,5 @@
-<p>delete-employee works!</p>
+<div class="mb-3">
+    <p *ngIf="employeeObj">Do you want to delete {{employeeObj.employee_name}}</p>
+    <button class="btn btn-warning" (click)="onDelete()">Ok Delete</button>
+    <button class="btn btn-secondary" [routerLink]="['/employee']">Back Home</button>
+</div>

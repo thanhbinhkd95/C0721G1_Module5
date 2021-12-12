@@ -1,1 +1,81 @@
-<p>create-employee works!</p>
+<form [formGroup]="employeeForm" (ngSubmit)="onCreate()">
+
+    <div class="mb-3">
+        <label for="nameEmployee" class="form-label">Name Employee</label>
+        <input type="text" class="form-control" id="nameEmployee" formControlName="employee_name">
+        <div *ngIf="employeeForm.get('employee_name').hasError('required') && employeeForm.get('employee_name').dirty">Nhap ten cho Nhan Vien nay</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="birthdayEmployee" class="form-label">Birthday</label>
+        <input type="date" class="form-control" id="birthdayEmployee" formControlName="employee_birthday">
+        <div *ngIf="employeeForm.get('employee_birthday').hasError('required') && employeeForm.get('employee_birthday').dirty">Nhap birthday cho Nhan Vien nay</div>
+
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="idCard">IdCard Employee</label>
+        <input type="text" class="form-control" id="idCard" formControlName="employee_id_card">
+        <div class="errors" *ngFor="let errors of validationMessage.employee_phone">
+            <ng-template [ngIf]="employeeForm.get('employee_id_card').hasError(errors.type) && employeeForm.get('employee_id_card').dirty">
+                {{errors.message}}
+            </ng-template>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="salaryEmployee">Salary Employee</label>
+        <input type="number" class="form-control" id="salaryEmployee" formControlName="employee_salary">
+        <div *ngIf="employeeForm.get('employee_salary').hasError('required') && employeeForm.get('employee_salary').dirty"></div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="phoneEmployee">Phone Employee</label>
+        <input type="number" class="form-control" id="phoneEmployee" formControlName="employee_phone">
+        <div class="errors" *ngFor="let errors of validationMessage.employee_phone">
+            <ng-template [ngIf]="employeeForm.get('employee_phone').hasError(errors.type) && employeeForm.get('employee_phone').dirty">
+                {{errors.message}}
+            </ng-template>
+        </div>
+
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="emailEmployee">Email Employee</label>
+        <input type="email" class="form-control" id="emailEmployee" formControlName="employee_email">
+        <div class="errors" *ngFor="let errors of validationMessage.employee_phone">
+            <ng-template [ngIf]="employeeForm.get('employee_email').hasError(errors.type) && employeeForm.get('employee_email').dirty">
+                {{errors.message}}
+            </ng-template>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="addressEmployee">Address Employee</label>
+        <input type="text" class="form-control" id="addressEmployee" formControlName="employee_address">
+        <div *ngIf="employeeForm.get('employee_address').hasError('required') && employeeForm.get('employee_address').dirty">Nhap dia chi cho Nhan Vien nay</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="divisionEmployee">Division Employee</label>
+        <select id="divisionEmployee" class="form-select" formControlName="division_id" [value]="divisionArr">
+      <option *ngFor="let items of divisionArr" [ngValue]="items" >{{items.name}}</option>
+    </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="positionEmployee">Position Employee</label>
+        <select id="positionEmployee" class="form-select" formControlName="position_id" [value]="positionArr">
+      <option *ngFor="let items of positionArr" [ngValue]="items">{{items.name}}</option>
+    </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="educationEmployee">Education Employee</label>
+        <select id="educationEmployee" class="form-select" formControlName="education_id" [value]="educationArr">
+      <option *ngFor="let items of educationArr" [ngValue]="items">{{items.name}}</option>
+    </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

@@ -22,6 +22,7 @@ import { CreateServiceComponent } from './inhouse-service/create-service/create-
 import { ListServiceComponent } from './inhouse-service/list-service/list-service.component';
 import { EditServiceComponent } from './inhouse-service/edit-service/edit-service.component';
 import { DeleteServiceComponent } from './inhouse-service/delete-service/delete-service.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [AppComponent, AddAttachComponent, CreateContractComponent, ListContractAttachComponent, ListContractComponent, DeleteCustomerComponent, CreateCustomerComponent, ListCustomerComponent, EditCustomerComponent, CreateEmployeeComponent, ListEmployeeComponent, EditEmployeeComponent, DeleteEmployeeComponent, CreateServiceComponent, ListServiceComponent, EditServiceComponent, DeleteServiceComponent],
@@ -31,6 +32,7 @@ import { DeleteServiceComponent } from './inhouse-service/delete-service/delete-
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([]),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent],
