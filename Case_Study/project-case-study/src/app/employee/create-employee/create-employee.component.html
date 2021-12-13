@@ -18,7 +18,8 @@
         <input type="text" class="form-control" id="idCard" formControlName="employee_id_card">
         <div class="errors" *ngFor="let errors of validationMessage.employee_phone">
             <ng-template [ngIf]="employeeForm.get('employee_id_card').hasError(errors.type) && employeeForm.get('employee_id_card').dirty">
-                {{errors.message}}
+                Wrong format ID card!
+
             </ng-template>
         </div>
     </div>

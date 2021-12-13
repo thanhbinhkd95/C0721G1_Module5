@@ -1,1 +1,41 @@
-<p>list-contract-attach works!</p>
+<table class="table table-light table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Day Start Contract</th>
+            <th>Day End Contract</th>
+            <th>Money Deposit</th>
+            <th>Total Money</th>
+            <th>Employee Name</th>
+            <th>Customer Name</th>
+            <th>Service Name</th>
+            <th>Attach Service
+                <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let items of contractAttachArr">
+            <td>{{items.id}}</td>
+            <td>{{items.contract.contract_start_day}}</td>
+            <td>{{items.contract.contract_end_day}}</td>
+            <td>{{items.contract.contract_deposit}}</td>
+            <td>{{items.contract.contract_total_money}}</td>
+            <td>{{items.contract.employee.employee_name}}</td>
+            <td>{{items.contract.customer.customer_name}}</td>
+            <td>{{items.contract.service.service_name}}</td>
+            <td>
+                <span *ngFor="let childItems of items.service_attach">
+            {{childItems.attach_service_name}}
+            <br>
+          </span>
+            </td>
+
+            <td>
+                <span *ngFor="let childItems of items.quantity">
+            {{childItems}}
+            <br>
+          </span>
+            </td>
+        </tr>
+    </tbody>
+</table>

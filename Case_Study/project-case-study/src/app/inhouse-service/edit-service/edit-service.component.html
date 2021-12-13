@@ -1,1 +1,87 @@
-<p>edit-service works!</p>
+<form [formGroup]="serviceForm" (ngSubmit)="onUpdate()">
+    <div class="mb-3">
+        <label for="nameService" class="form-label">Name Service</label>
+        <input type="text" class="form-control" id="nameService" formControlName="service_name">
+        <div class="errors" *ngFor="let errors of validationMessage.service_name">
+            <ng-template [ngIf]="serviceForm.get('service_name').hasError(errors.type) && serviceForm.get('service_name').dirty">
+                {{errors.message}}
+            </ng-template>
+        </div>
+
+    </div>
+
+    <div class="mb-3">
+        <label for="areaService" class="form-label">Area Service</label>
+        <input type="number" class="form-control" id="areaService" formControlName="service_area">
+        <div class="errors" *ngFor="let errors of validationMessage.number">
+            <ng-template [ngIf]="serviceForm.get('service_area').hasError(errors.type) && serviceForm.get('service_area').dirty">
+                {{errors.message}}
+            </ng-template>
+        </div>
+
+    </div>
+
+    <div class="mb-3">
+        <label for="costService" class="form-label">Cost Service</label>
+        <input type="number" class="form-control" id="costService" formControlName="service_cost">
+        <div class="errors" *ngFor="let errors of validationMessage.number">
+            <ng-template [ngIf]="serviceForm.get('service_cost').hasError(errors.type) && serviceForm.get('service_cost').dirty">
+                {{errors.message}}
+            </ng-template>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="maxPeople">Max People</label>
+        <input type="number" class="form-control" id="maxPeople" formControlName="service_max_people">
+        <div class="errors" *ngFor="let errors of validationMessage.number">
+            <ng-template [ngIf]="serviceForm.get('service_max_people').hasError(errors.type) && serviceForm.get('service_max_people').dirty">
+                {{errors.message}}
+            </ng-template>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="standardRoom">Standard Room</label>
+        <input type="text" class="form-control" id="standardRoom" formControlName="standard_room">
+        <div *ngIf="serviceForm.get('standard_room').hasError('required') && serviceForm.get('standard_room').dirty">Vui long nhap StandRoom</div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <input type="text" class="form-control" id="description" formControlName="description">
+        <div *ngIf="serviceForm.get('description').hasError('required') && serviceForm.get('description').dirty">Vui long nhap Description</div>
+
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="poolArea">Pool Areas</label>
+        <input type="text" class="form-control" id="poolArea" formControlName="pool_area">
+        <div class="errors" *ngFor="let errors of validationMessage.number">
+            <ng-template [ngIf]="serviceForm.get('pool_area').hasError(errors.type) && serviceForm.get('pool_area').dirty">
+                {{errors.message}}
+            </ng-template>
+        </div>
+
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="numberFloor">Number Floors</label>
+        <input type="text" class="form-control" id="numberFloor" formControlName="number_floors">
+        <div class="errors" *ngFor="let errors of validationMessage.number">
+            <ng-template [ngIf]="serviceForm.get('number_floors').hasError(errors.type) && serviceForm.get('number_floors').dirty">
+                {{errors.message}}
+            </ng-template>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="customerType">Service Type</label>
+        <select id="customerType" class="form-select" formControlName="service_type">
+      <option *ngFor="let items of serviceTypeArr" [selected]="serviceForm.controls.service_type.value.id == items.id" [ngValue]="items">{{items.name}}</option>
+    </select>
+        <div *ngIf="serviceForm.get('service_type').hasError('required') && serviceForm.get('service_type').dirty">Vui long chon Service Type</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

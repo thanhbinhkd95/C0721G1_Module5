@@ -1,1 +1,5 @@
-<p>delete-service works!</p>
+<div class="mb-3">
+    <p *ngIf="serviceObj">Do you want to Delete {{serviceObj.service_name}}</p>
+    <button class="btn btn-warning" (click)="onDelete()">Ok Delete</button>
+    <button class="btn btn-secondary" [routerLink]="['/service']">Back Home</button>
+</div>

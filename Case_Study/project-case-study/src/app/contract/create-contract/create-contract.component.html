@@ -1,1 +1,44 @@
-<p>create-contract works!</p>
+<form [formGroup]="contractForm" (ngSubmit)="onCreate()">
+    <div class="mb-3">
+        <label for="startDay" class="form-label">Day Start Contract</label>
+        <input type="date" class="form-control" id="startDay" formControlName="contract_start_day">
+    </div>
+
+    <div class="mb-3">
+        <label for="endDay" class="form-label">Day End Contract</label>
+        <input type="date" class="form-control" id="endDay" formControlName="contract_end_day">
+    </div>
+
+    <div class="mb-3">
+        <label for="deposit" class="form-label">Money Deposit</label>
+        <input type="number" class="form-control" id="deposit" formControlName="contract_deposit">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="total">Total Money</label>
+        <input type="text" class="form-control" id="total" formControlName="contract_total_money">
+    </div>
+
+    <div class="mb-3">
+        <label for="employee">Employee</label>
+        <select id="employee" class="form-select" formControlName="employee">
+      <option *ngFor="let items of employeeArr" [ngValue]="items">{{items.employee_name}}</option>
+    </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="service">Service</label>
+        <select id="service" class="form-select" formControlName="service">
+      <option *ngFor="let items of serviceArr" [ngValue]="items">{{items.service_name}} || {{items.service_type.name}}</option>
+    </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="customer">Customer</label>
+        <select id="customer" class="form-select" formControlName="customer">
+      <option *ngFor="let items of customerArr" [ngValue]="items">{{items.customer_name}}</option>
+    </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

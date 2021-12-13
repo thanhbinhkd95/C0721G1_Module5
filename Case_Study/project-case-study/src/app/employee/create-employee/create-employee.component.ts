@@ -1,14 +1,15 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { DivisionService } from 'src/system-service/employee/division.service';
-import { EducationService } from 'src/system-service/employee/education.service';
-import { EmployeeService } from 'src/system-service/employee/employee.service';
-import { PositionService } from 'src/system-service/employee/position.service';
-import { Division } from '../division';
-import { EducationDegree } from '../education-degree';
-import { PositionEmployee } from '../postion-employee';
+import { HttpClient } from "@angular/common/http";
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { DivisionService } from "src/system-service/employee/division.service";
+import { EducationService } from "src/system-service/employee/education.service";
+import { EmployeeService } from "src/system-service/employee/employee.service";
+import { PositionService } from "src/system-service/employee/position.service";
+import { Division } from "../division";
+import { EducationDegree } from "../education-degree";
+import { Employee } from "../employee";
+import { PositionEmployee } from "../postion-employee";
 
 @Component({
   selector: "app-create-employee",
@@ -29,7 +30,7 @@ export class CreateEmployeeComponent implements OnInit {
       "",
       Validators.compose([
         Validators.required,
-        Validators.pattern("^(KH-)[\\d]{4}$"),
+        Validators.pattern('[0-9]{9,12}$'),
       ])
     ),
     employee_salary: new FormControl(
@@ -83,21 +84,17 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
+  employee: Employee;
   onCreate() {
-    if (this.employeeForm.valid) {
-      this.employeeService
-        .createEmployee(this.employeeForm.value)
-        .subscribe((next) => {
-          this.router.navigateByUrl("/employee");
-        });
-    }
+     this.employee = this.employeeForm.value;
+    this.employeeService
+      .createEmployee(this.employee)
+      .subscribe((next) => {
+        this.router.navigateByUrl("/employee");
+      });
   }
   validationMessage = {
-    employee_id_card: [
-      { type: "required", message: "Bat buoc nhap" },
-      { type: "pattern", message: "Nhap dung dinh dang NV-XXXX" },
-    ],
+
     employee_phone: [
       { type: "required", message: "Bat buoc nhap" },
       {

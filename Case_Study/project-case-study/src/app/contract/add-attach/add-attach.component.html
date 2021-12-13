@@ -1,1 +1,38 @@
-<p>add-attach works!</p>
+<form [formGroup]="contractAttachForm" (ngSubmit)="onCreate()">
+
+    <div class="mb-3">
+        <h3 *ngIf="contractObj">Contract_id : {{contractObj.id}}</h3>
+        <!--    <select id="contract" class="form-select" formControlName="contract">-->
+        <!--      <option *ngFor="let items of contractArr" [ngValue]="items">{{items.id}}</option>-->
+        <!--    </select>-->
+    </div>
+
+    <div class="mb-3">
+        <!--    <label for="service">Service</label>-->
+        <table class="table table-light table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 70%">Name of Attach Service</th>
+                    <th style="width: 15%; text-align: center">Yes Or No</th>
+                    <th style="width: 15%; text-align: center">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let items of attachArr">
+                    <td>{{items.attach_service_name}}</td>
+                    <td style="text-align: center">
+                        <input type="checkbox" (change)="onCheck(items, $event.target.checked)">
+                    </td>
+                    <td>
+                        <input type="number" (change)="onInput($event.target.value, items)">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--    <select id="service" class="form-select" formControlName="service">-->
+        <!--      <option *ngFor="let items of attachArr" [ngValue]="items">{{items.service_name}} || {{items.service_type.name}}</option>-->
+        <!--    </select>-->
+    </div>
+    <div *ngIf="messageErrors" style="color: red">{{messageErrors}}</div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>

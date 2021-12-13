@@ -1,1 +1,38 @@
-<p>list-service works!</p>
+<a [routerLink]="['/service/create']">Create Service</a>
+<table class="table table-light table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Service Name</th>
+            <th>Service Area</th>
+            <th>Service Cost</th>
+            <th>Max People</th>
+            <th>Standard Room</th>
+            <th>Description</th>
+            <th>Pool Area</th>
+            <th>Number Floor</th>
+            <th>Service Type</th>
+            <th colspan="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let items of serviceArr">
+            <td>{{items.id}}</td>
+            <td>{{items.service_name}}</td>
+            <td>{{items.pool_area}}</td>
+            <td>{{items.service_cost}}</td>
+            <td>{{items.service_max_people}}</td>
+            <td>{{items.standard_room}}</td>
+            <td>{{items.description}}</td>
+            <td>{{items.pool_area}}</td>
+            <td>{{items.number_floors}}</td>
+            <td>{{items.service_type.name}}</td>
+            <td>
+                <button type="button" class="btn btn-warning" (click)="showEdit(items.id)">Edit</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger" (click)="showDelete(items.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

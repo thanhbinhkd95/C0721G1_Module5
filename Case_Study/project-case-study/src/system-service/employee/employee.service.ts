@@ -15,14 +15,14 @@ export class EmployeeService {
   findById(id: number) {
     return this.http.get(this.URL_EMPLOYEE + "/" + id);
   }
-  createEmployee(employee: Employee) {
-    return this.http.post(this.URL_EMPLOYEE, employee);
+  createEmployee(employee: Employee):Observable<void> {
+    return this.http.post<void>(this.URL_EMPLOYEE, employee);
   }
-  updateEmployee(employee: Employee) {
-    return this.http.put(this.URL_EMPLOYEE + "/" + employee.id, employee);
+  updateEmployee(employee: Employee): Observable<void>{
+    return this.http.patch<void>(this.URL_EMPLOYEE + "/" + employee.id, employee);
   }
-  deleteEmployee(id: number) {
-    return this.http.delete(this.URL_EMPLOYEE + "/" + id);
+  deleteEmployee(id: number): Observable<void>{
+    return this.http.delete<void>(this.URL_EMPLOYEE + "/" + id);
   }
   paginator(numberPage: number): Observable<Employee[] | any> {
     return this.http.get(
@@ -40,7 +40,7 @@ export class EmployeeService {
     );
   }
   findByName(nameEmployee: string): Observable<Employee[] | any> {
-    return this.http.get(
+    return this.http.get<Employee[] | any>(this.URL_EMPLOYEE +
       this.URL_EMPLOYEE + "?employee_name_like=" + nameEmployee
     );
   }

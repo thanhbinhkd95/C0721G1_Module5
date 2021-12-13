@@ -8,6 +8,7 @@ import { Customer } from 'src/app/customer/customer';
   providedIn: "root",
 })
 export class CustomerService {
+
   private URL_CUSTOMER = "http://localhost:3000/customer";
 
 
@@ -28,5 +29,32 @@ export class CustomerService {
 
   deleteCustomer(id: number): Observable<Customer>{
     return this.http.delete<Customer>(this.URL_CUSTOMER + "/" + id)
+  }
+  find(customerSearch: Customer): Observable<Customer []>{
+    if (customerSearch.customer_type.name === undefined){
+      return this.http.get<Customer[]>(
+        this.URL_CUSTOMER +
+          "?" +
+          // tìm tên
+          "&customer_name_like=" +
+          customerSearch.customer_name +
+          // tìm ngày sinh
+          "&customer_birthday_like=" +
+          customerSearch.customer_birthday)
+
+    }
+      return this.http.get<Customer[]>(
+        this.URL_CUSTOMER +
+          "?" +
+          // tìm tên
+          "&customer_name_like=" +
+          customerSearch.customer_name +
+          // tìm ngày sinh
+          "&customer_birthday_like=" +
+          customerSearch.customer_birthday +
+          // tìm theo customer type
+          "&customer_type.name=" +
+          customerSearch.customer_type.name
+      );
   }
 }
