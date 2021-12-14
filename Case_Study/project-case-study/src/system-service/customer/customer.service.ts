@@ -7,7 +7,7 @@ import { Customer } from 'src/app/customer/customer';
 @Injectable({
   providedIn: "root",
 })
-export class CustomerService {
+export class  CustomerService {
 
   private URL_CUSTOMER = "http://localhost:3000/customer";
 

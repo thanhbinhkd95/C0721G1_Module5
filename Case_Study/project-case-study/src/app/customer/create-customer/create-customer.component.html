@@ -2,81 +2,120 @@
     <div class="mb-3">
         <label for="codeCustomer" class="form-label">Code Customer</label>
         <input type="text" class="form-control" id="codeCustomer" formControlName="customer_code">
-        <div class="errors" *ngFor="let errors of validationMessage.customer_code">
-            <ng-template [ngIf]="customerForm.get('customer_code').hasError(errors.type) && customerForm.get('customer_code').dirty">
-                {{errors.message}}
-            </ng-template>
+        <div *ngIf="!this.customerForm.get('customer_code').valid && (this.customerForm.get('customer_code').dirty ||this.customerForm.get('customer_code').touched)">
+            <div [hidden]="!this.customerForm.get('customer_code').errors.required" style="color:red;">
+                Code is required
+            </div>
+            <div [hidden]="!this.customerForm.get('customer_code').errors.pattern" style="color:red;">
+                Code is not format
+            </div>
         </div>
     </div>
 
     <div class="mb-3">
         <label for="nameCustomer" class="form-label">Name Customer</label>
         <input type="text" class="form-control" id="nameCustomer" formControlName="customer_name">
-        <div *ngIf="customerForm.get('customer_name').hasError('required') && customerForm.get('customer_name').dirty">Nhap ten cho customer</div>
-    </div>
+        <div *ngIf="!this.customerForm.get('customer_name').valid && (this.customerForm.get('customer_name').dirty ||this.customerForm.get('customer_name').touched)">
+            <div [hidden]="!this.customerForm.get('customer_name').errors.required" style="color:red;">
+                Name is required!
+            </div>
+        </div>
 
-    <div class="mb-3">
-        <label for="birthdayCustomer" class="form-label">Birthday Customer</label>
-        <input type="date" class="form-control" id="birthdayCustomer" formControlName="customer_birthday">
-        <div *ngIf="customerForm.get('customer_birthday').hasError('required') && customerForm.get('customer_birthday').dirty">Nhap birthday cho Khach hang nay</div>
-    </div>
+        <div class="mb-3 ">
+            <label for="birthdayCustomer " class="form-label ">Birthday Customer</label>
+            <input type="date" class="form-control" id="birthdayCustomer" formControlName="customer_birthday">
+            <div *ngIf="!this.customerForm.get('customer_birthday').valid && (this.customerForm.get('customer_birthday').dirty ||this.customerForm.get('customer_birthday').touched)">
+                <div [hidden]="!this.customerForm.get('customer_birthday').errors.required" style="color:red;">
+                    Birthday is required!
+                </div>
+                <div [hidden]="!this.customerForm.get('customer_birthday').hasError('not18')" style="color:red;">
+                    Too Young!
+                </div>
+                <div [hidden]="!this.customerForm.get('customer_birthday').errors.pattern" style="color:red;">
+                    Birhday is not format DD/MM/YY!
+                </div>
+            </div>
+        </div>
 
-    <div class="mb-3">
-        <label for="genderCustomer">Gender Customer</label>
-        <select id="genderCustomer" class="form-select" formControlName="customer_gender">
-      <option value="0">Male</option>
-      <option value="1">FeMale</option>
-      <option value="2">LGBT</option>
+        <div class="mb-3 ">
+            <label for="genderCustomer">Gender Customer</label>
+            <select id="genderCustomer" class="form-select " formControlName="customer_gender">
+      <option value="0 ">Male</option>
+      <option value="1 ">FeMale</option>
+      <option value="2 ">LGBT</option>
     </select>
-        <div *ngIf="customerForm.get('customer_gender').hasError('required') && customerForm.get('customer_gender').dirty">Nhap gioi tinh cho khahc hang nay</div>
-    </div>
+            <!-- <div *ngIf="!this.customerForm.get('customer_gender').valid && (this.customerForm.get('customer_gender').dirty ||this.customerForm.get('customer_gender').touched)">
+                <div [hidden]="!this.customerForm.get('customer_gender').errors.required" style="color:red;">
+                    Code is required
+                </div>
 
-    <div class="mb-3">
-        <label class="form-label" for="idCard">IdCard Customer</label>
-        <input type="text" class="form-control" id="idCard" formControlName="customer_idCard">
-        <div class="errors" *ngFor="let errors of validationMessage.customer_idCard">
-            <ng-template [ngIf]="customerForm.get('customer_idCard').hasError(errors.type) && customerForm.get('customer_idCard').dirty">
-                {{errors.message}}
-            </ng-template>
+            </div> -->
         </div>
 
-    </div>
-
-    <div class="mb-3">
-        <label class="form-label" for="phoneCustomer">Phone Customer</label>
-        <input type="number" class="form-control" id="phoneCustomer" formControlName="customer_phone">
-        <div class="errors" *ngFor="let errors of validationMessage.customer_phone">
-            <ng-template [ngIf]="customerForm.get('customer_phone').hasError(errors.type) && customerForm.get('customer_phone').dirty">
-                {{errors.message}}
-            </ng-template>
+        <div class="mb-3 ">
+            <label class="form-label " for="idCard ">IdCard Customer</label>
+            <input type="text " class="form-control " id="idCard " formControlName="customer_idCard">
+            <div *ngIf="!this.customerForm.get('customer_idCard').valid && (this.customerForm.get('customer_idCard').dirty ||this.customerForm.get('customer_idCard').touched)">
+                <div [hidden]="!this.customerForm.get('customer_idCard').errors.required" style="color:red;">
+                    ID Card is required!
+                </div>
+                <div [hidden]="!this.customerForm.get('customer_idCard').errors.pattern" style="color:red;">
+                    ID Card is not format!
+                </div>
+            </div>
         </div>
 
-    </div>
+        <div class="mb-3 ">
+            <label class="form-label " for="phoneCustomer ">Phone Customer</label>
+            <input type="number " class="form-control " id="phoneCustomer " formControlName="customer_phone">
+            <div *ngIf="!this.customerForm.get('customer_phone').valid && (this.customerForm.get('customer_phone').dirty ||this.customerForm.get('customer_phone').touched)">
+                <div [hidden]="!this.customerForm.get('customer_phone').errors.required" style="color:red;">
+                    Phone Number is required!
+                </div>
+                <div [hidden]="!this.customerForm.get('customer_phone').errors.pattern" style="color:red;">
+                    Phone Number is not format!
+                </div>
+            </div>
 
-    <div class="mb-3">
-        <label class="form-label" for="emailCustomer">Email Customer</label>
-        <input type="email" class="form-control" id="emailCustomer" formControlName="customer_email">
-        <div class="errors" *ngFor="let errors of validationMessage.customer_email">
-            <ng-template [ngIf]="customerForm.get('customer_email').hasError(errors.type) && customerForm.get('customer_email').dirty">
-                {{errors.message}}
-            </ng-template>
         </div>
 
-    </div>
+        <div class="mb-3 ">
+            <label class="form-label " for="emailCustomer ">Email Customer</label>
+            <input type="email " class="form-control " id="emailCustomer " formControlName="customer_email">
+            <div *ngIf="!this.customerForm.get('customer_email').valid && (this.customerForm.get('customer_email').dirty ||this.customerForm.get('customer_email').touched)">
+                <div [hidden]="!this.customerForm.get('customer_email').errors.required" style="color:red;">
+                    Email is required!
+                </div>
+                <div [hidden]="!this.customerForm.get('customer_email').errors.email" style="color:red;">
+                    Email is not format!
+                </div>
+            </div>
 
-    <div class="mb-3">
-        <label class="form-label" for="addressCustomer">Address Customer</label>
-        <input type="text" class="form-control" id="addressCustomer" formControlName="customer_address">
-        <div *ngIf="customerForm.get('customer_address').hasError('required') && customerForm.get('customer_address').dirty">Nhap dia chi cho khach hang nay</div>
-    </div>
+        </div>
 
-    <div class="mb-3">
-        <label for="customerType">Customer Type</label>
-        <select id="customerType" class="form-select" formControlName="customer_type">
-      <option *ngFor="let items of customerTypeArr" [ngValue]="items">{{items.name}}</option>
+        <div class="mb-3 ">
+            <label class="form-label " for="addressCustomer ">Address Customer</label>
+            <input type="text " class="form-control " id="addressCustomer " formControlName="customer_address">
+            <div *ngIf="!this.customerForm.get('customer_address').valid && (this.customerForm.get('customer_address').dirty ||this.customerForm.get('customer_address').touched)">
+                <div [hidden]="!this.customerForm.get('customer_address').errors.required" style="color:red;">
+                    Address is required!
+                </div>
+
+            </div>
+        </div>
+
+        <div class="mb-3 ">
+            <label for="customerType ">Customer Type</label>
+            <select id="customerType " class="form-select " formControlName="customer_type">
+      <option *ngFor="let items of customerTypeArr " [ngValue]="items ">{{items.name}}</option>
     </select>
-        <div *ngIf="customerForm.get('customer_type').hasError('required') && customerForm.get('customer_type').dirty">Nhap loai khach cho khach hang nay</div>
-    </div>
+            <div *ngIf="!this.customerForm.get('customer_type').valid && (this.customerForm.get('customer_type').dirty ||this.customerForm.get('customer_type').touched)">
+                <div [hidden]="!this.customerForm.get('customer_type').errors.required" style="color:red;">
+                    Type is required!
+                </div>
+            </div>
+        </div>
 
-    <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit " class="btn btn-primary" [disabled]="!customerForm.valid">Create</button>
+    </div>
 </form>

@@ -16,32 +16,38 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let items of customerArr| paginate: { itemsPerPage: 1, currentPage: page}">
-            <td>{{items.id}}</td>
-            <td>{{items.customer_code}}</td>
-            <td>{{items.customer_name}}</td>
-            <td>{{items.customer_birthday}}</td>
+        <tr *ngFor="
+        let items of customerArr
+          | paginate: { itemsPerPage: 2, currentPage: page }
+      ">
+            <td>{{ items.id }}</td>
+            <td>{{ items.customer_code }}</td>
+            <td>{{ items.customer_name }}</td>
+            <td>{{ items.customer_birthday }}</td>
             <td [ngSwitch]="items.customer_gender">
                 <span *ngSwitchCase="0">Male</span>
                 <span *ngSwitchCase="1">FeMale</span>
                 <span *ngSwitchDefault>LGBT</span>
             </td>
-            <td>{{items.customer_idCard}}</td>
-            <td>{{items.customer_phone}}</td>
-            <td>{{items.customer_email}}</td>
-            <td>{{items.customer_address}}</td>
-            <td>{{items.customer_type.name}}</td>
+            <td>{{ items.customer_idCard }}</td>
+            <td>{{ items.customer_phone }}</td>
+            <td>{{ items.customer_email }}</td>
+            <td>{{ items.customer_address }}</td>
+            <td>{{ items.customer_type.name }}</td>
             <td>
-                <button type="button" class="btn btn-warning" (click)="showEdit(items.id)">Edit</button>
+                <button type="button" class="btn btn-warning" (click)="showEdit(items.id)">
+          Edit
+        </button>
             </td>
             <td>
-                <button type="button" class="btn btn-danger" (click)="showDelete(items.id)">Delete</button>
+                <button (click)="mdDelete(items.id)" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalDelete">
+          Delete <i class="fas fa-trash"></i>
+        </button>
             </td>
         </tr>
     </tbody>
 </table>
 <pagination-controls (pageChange)="page = $event"></pagination-controls>
-
 
 <!-- Modal Search-->
 <div class="modal fade" id="mdSearch" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -55,25 +61,25 @@
             </div>
             <div class="modal-body">
                 <form [formGroup]="searchForm">
-
                     <div>Customer Name</div>
-                    <input class="form-control" type="text" formControlName="customer_name">
+                    <input class="form-control" type="text" formControlName="customer_name" />
 
                     <div>Customer Type</div>
                     <select formControlName="customer_type" class="form-control">
-            <option *ngFor="let t of customerTypeArr" [ngValue]="t">{{t.name}}</option>
+            <option *ngFor="let t of customerTypeArr" [ngValue]="t">
+              {{ t.name }}
+            </option>
           </select>
 
                     <div>Date of Birth</div>
-                    <input class="form-control" type="text" formControlName="customer_birthday">
-
-
-
+                    <input class="form-control" type="text" formControlName="customer_birthday" />
 
                     <div class="btnGroup">
-                        <button type="button" class="btn btnEdit btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" (click)="search()" data-dismiss="modal" class="btn btnEdit btn-primary">Find
-
+                        <button type="button" class="btn btnEdit btn-secondary" data-dismiss="modal">
+              Close
+            </button>
+                        <button type="button" (click)="search()" data-dismiss="modal" class="btn btnEdit btn-primary">
+              Find
             </button>
                     </div>
                 </form>
@@ -84,6 +90,29 @@
 
 <!-- Button Search -->
 <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#mdSearch">
-  <span >Search </span>
+  <span>Search </span>
   <i class="fas fa-search iSearch"></i>
 </button>
+
+<!-- Modal Delete -->
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">Are you want to delete?</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+                <button type="button" class="btn btn-primary" (click)="onDelete()" data-dismiss="modal">
+          Delete
+        </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -25,14 +25,18 @@ import { DeleteServiceComponent } from './inhouse-service/delete-service/delete-
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
-  declarations: [AppComponent, AddAttachComponent, CreateContractComponent, ListContractAttachComponent, ListContractComponent, DeleteCustomerComponent, CreateCustomerComponent, ListCustomerComponent, EditCustomerComponent, CreateEmployeeComponent, ListEmployeeComponent, EditEmployeeComponent, DeleteEmployeeComponent, CreateServiceComponent, ListServiceComponent, EditServiceComponent, DeleteServiceComponent],
+  declarations: [AppComponent, AddAttachComponent, CreateContractComponent, ListContractAttachComponent,
+    ListContractComponent, DeleteCustomerComponent, CreateCustomerComponent, ListCustomerComponent, EditCustomerComponent,
+    CreateEmployeeComponent, ListEmployeeComponent, EditEmployeeComponent, DeleteEmployeeComponent, CreateServiceComponent,
+    ListServiceComponent, EditServiceComponent, DeleteServiceComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([]),
-    NgxPaginationModule
+    NgxPaginationModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

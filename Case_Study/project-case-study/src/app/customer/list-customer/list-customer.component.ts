@@ -12,7 +12,6 @@ import { CustomerTypeService } from 'src/system-service/customer/customer-type.s
   styleUrls: ["./list-customer.component.css"],
 })
 export class ListCustomerComponent implements OnInit {
-
   customerArr: Customer[];
   page = 1;
   customerTypeArr: CustomerType[];
@@ -52,12 +51,25 @@ export class ListCustomerComponent implements OnInit {
   showDelete(id: number) {
     this.router.navigate(["customer", "delete", id]);
   }
-// tạo một đối tượng customer để gán dữ liệu của form vào, sau đó gởi qua service
-customerSearch:Customer
-  search(){
-    this.customerSearch = this.searchForm.value
-    this.customerService.find(this.customerSearch).subscribe(value => {
-      this.customerArr = value
-    })
+  // tạo một đối tượng customer để gán dữ liệu của form vào, sau đó gởi qua service
+  customerSearch: Customer;
+  search() {
+    this.customerSearch = this.searchForm.value;
+    this.customerService.find(this.customerSearch).subscribe((value) => {
+      this.customerArr = value;
+    });
+  }
+
+  onDelete() {
+    this.customerService.deleteCustomer(this.idDelete).subscribe(next => {
+      this.ngOnInit();
+
+    });
+  }
+
+  idDelete:number;
+  mdDelete(id:any) {
+    this.idDelete = Number(id);
+
   };
 }

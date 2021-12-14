@@ -8,12 +8,12 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class ContractService {
-  private URL_CONTRACT = "http://localhost:3000/contract";
+  private URL_CONTRACT = "http://localhost:3000/contract"; 
   constructor(private http: HttpClient) {}
   getAll(): Observable<Contract[] | any> {
     return this.http.get(this.URL_CONTRACT);
   }
-  createContract(contract: Contract) {
+  createContract(contract: Contract):Observable<Contract[] | any> {
     return this.http.post(this.URL_CONTRACT, contract);
   }
   findById(id: number): Observable<Contract | any> {

@@ -109,6 +109,28 @@
         "name": "Hanh chinh"
       },
       "id": 5
+    },
+    {
+      "employee_name": "Tú Đỗ",
+      "employee_birthday": "1995-02-14",
+      "employee_id_card": "205744553",
+      "employee_salary": 8000000,
+      "employee_phone": 909999987,
+      "employee_email": "tukd95@gmail.com",
+      "employee_address": "Nguyễn Tất Thành - Đà Nẵng",
+      "position_id": {
+        "id": 2,
+        "name": "Phuc vu"
+      },
+      "education_id": {
+        "id": 3,
+        "name": "Dai hoc"
+      },
+      "division_id": {
+        "id": 2,
+        "name": "Hanh chinh"
+      },
+      "id": 6
     }
   ],
   "position": [
@@ -179,14 +201,14 @@
       "customer_code": "KH-0001",
       "customer_name": "Quan vu",
       "customer_birthday": "2021-10-22",
-      "customer_gender": "0",
+      "customer_gender": "2",
       "customer_idCard": "123452187",
       "customer_phone": "0905211121",
       "customer_email": "quanvu@gmail.com",
       "customer_address": "Nghe An",
       "customer_type": {
-        "id": 2,
-        "name": "Gold"
+        "id": 5,
+        "name": "Member"
       }
     },
     {
@@ -200,8 +222,8 @@
       "customer_email": "quanvu@gmail.com",
       "customer_address": "Da Nang",
       "customer_type": {
-        "id": 2,
-        "name": "Gold"
+        "id": 1,
+        "name": "Diamond"
       }
     },
     {
@@ -233,6 +255,36 @@
         "id": 1,
         "name": "Diamond"
       }
+    },
+    {
+      "customer_code": "KH-0006",
+      "customer_name": "Chánh Trần Văn",
+      "customer_birthday": "1995-02-14",
+      "customer_gender": "0 ",
+      "customer_idCard": "205744553",
+      "customer_phone": "0909889999",
+      "customer_email": "thanhbinhkd95@gmail.com",
+      "customer_address": "Nguyễn Tất Thành - Đà Nẵng",
+      "customer_type": {
+        "id": 4,
+        "name": "Bronze"
+      },
+      "id": 5
+    },
+    {
+      "customer_code": "KH-0006",
+      "customer_name": "Tú Đỗ",
+      "customer_birthday": "1995-02-14",
+      "customer_gender": "1 ",
+      "customer_idCard": "123456789",
+      "customer_phone": "0909999987",
+      "customer_email": "tukd95@gmail.com",
+      "customer_address": "Nguyễn Tất Thành - Đà Nẵng",
+      "customer_type": {
+        "id": 3,
+        "name": "Silver"
+      },
+      "id": 6
     }
   ],
   "customerType": [
@@ -302,6 +354,21 @@
         "id": 2,
         "name": "House"
       }
+    },
+    {
+      "service_name": "DV-0004",
+      "service_area": 50,
+      "service_cost": 800000,
+      "service_max_people": 23,
+      "standard_room": "Phong 5*",
+      "description": "Super Karaoke None uncensored None limit",
+      "pool_area": "40",
+      "number_floors": "4",
+      "service_type": {
+        "id": 1,
+        "name": "Villa"
+      },
+      "id": 4
     }
   ],
   "serviceType": [
@@ -715,6 +782,13 @@
           "attach_service_cost": 5,
           "attach_service_unit": 1,
           "attach_service_status": "available"
+        },
+        {
+          "id": 5,
+          "attach_service_name": "Non Limited Karaoke super non censored",
+          "attach_service_cost": 500000,
+          "attach_service_unit": 1,
+          "attach_service_status": "available"
         }
       ],
       "quantity": [
@@ -811,6 +885,80 @@
         "3"
       ],
       "id": 5
+    },
+    {
+      "contract": {
+        "id": 1,
+        "contract_start_day": "10/10/2000",
+        "contract_end_day": "15/10/2000",
+        "contract_deposit": 15,
+        "contract_total_money": 100,
+        "customer": {
+          "id": 1,
+          "customer_code": "KH-0001",
+          "customer_name": "Quan vu",
+          "customer_birthday": "10/08/2000",
+          "customer_gender": 1,
+          "customer_idCard": "123452187",
+          "customer_phone": "0905211121",
+          "customer_email": "quanvu@gmail.com",
+          "customer_address": "Da Nang",
+          "customer_type": {
+            "id": 1,
+            "name": "Diamond"
+          }
+        },
+        "employee": {
+          "id": 1,
+          "employee_name": "Tran Van Chien",
+          "employee_birthday": "10/08/2001",
+          "employee_id_card": "KH-0001",
+          "employee_salary": 5000,
+          "employee_phone": "0123451712",
+          "employee_email": "chien@gmail.com",
+          "employee_address": "Da Nang",
+          "position_id": {
+            "id": 1,
+            "name": "Le tan"
+          },
+          "education_id": {
+            "id": 1,
+            "name": "Trung cap"
+          },
+          "division_id": {
+            "id": 1,
+            "name": "Sale Makerting"
+          }
+        },
+        "service": {
+          "id": 1,
+          "service_name": "DV-0001",
+          "service_area": 50,
+          "service_cost": 450000,
+          "service_max_people": 10,
+          "standard_room": "Phong 5*",
+          "description": "Xem phim, bể bơi, ăn uống tùy thích",
+          "pool_area": 35,
+          "number_floors": 3,
+          "service_type": {
+            "id": 1,
+            "name": "Villa"
+          }
+        }
+      },
+      "service_attach": [
+        {
+          "id": 2,
+          "attach_service_name": "Karaoke",
+          "attach_service_cost": 10,
+          "attach_service_unit": 1,
+          "attach_service_status": "available"
+        }
+      ],
+      "quantity": [
+        "1"
+      ],
+      "id": 6
     }
   ],
   "contract": [
@@ -930,6 +1078,65 @@
           "id": 2,
           "name": "House"
         }
+      }
+    },
+    {
+      "id": 3,
+      "contract_start_day": "2021-12-14",
+      "contract_end_day": "2021-12-16",
+      "contract_deposit": 5000,
+      "contract_total_money": null,
+      "employee": {
+        "id": 2,
+        "employee_name": "Quan vu",
+        "employee_birthday": "2021-10-23",
+        "employee_id_card": "KH-0002",
+        "employee_salary": 8000,
+        "employee_phone": "0123451712",
+        "employee_email": "quanvu@gmail.com",
+        "employee_address": "Quang Nam",
+        "position_id": {
+          "id": 6,
+          "name": "Giam doc"
+        },
+        "education_id": {
+          "id": 1,
+          "name": "Trung cap"
+        },
+        "division_id": {
+          "id": 1,
+          "name": "Sale Makerting"
+        }
+      },
+      "customer": {
+        "id": 3,
+        "customer_code": "KH-0003",
+        "customer_name": "Truong Phi",
+        "customer_birthday": "10/08/2001",
+        "customer_gender": 1,
+        "customer_idCard": "123452187",
+        "customer_phone": "0905211121",
+        "customer_email": "quanvu@gmail.com",
+        "customer_address": "Da Nang",
+        "customer_type": {
+          "id": 1,
+          "name": "Diamond"
+        }
+      },
+      "service": {
+        "service_name": "DV-0004",
+        "service_area": 50,
+        "service_cost": 800000,
+        "service_max_people": 23,
+        "standard_room": "Phong 5*",
+        "description": "Super Karaoke None uncensored None limit",
+        "pool_area": "40",
+        "number_floors": "4",
+        "service_type": {
+          "id": 1,
+          "name": "Villa"
+        },
+        "id": 4
       }
     }
   ]
